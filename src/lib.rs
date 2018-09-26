@@ -280,7 +280,7 @@ struct Hull {
 
 impl Hull {
     fn new(n: usize, center: Point, i0: usize, i1: usize, i2: usize, points: &[Point]) -> Self {
-        let hash_len = (n as f64).sqrt() as usize;
+        let hash_len = (n as f64).sqrt().ceil() as usize;
 
         let mut hull = Self {
             prev: vec![0; n],            // edge to prev edge
