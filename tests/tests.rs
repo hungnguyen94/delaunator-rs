@@ -55,6 +55,15 @@ fn bad_input() {
     validate(&points);
 }
 
+#[test]
+fn index_out_of_bounds_check() {
+    let mut points = load_fixture("tests/fixtures/robust4.json");
+    assert!(
+        triangulate(&points).is_some(),
+        "Should return a triangulation"
+    )
+}
+
 fn scale_points(points: &[Point], scale: f64) -> Vec<Point> {
     let scaled: Vec<Point> = points
         .iter()
