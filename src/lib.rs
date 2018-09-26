@@ -233,7 +233,12 @@ impl Triangulation {
                         hull.tri[e] = a;
                         break;
                     }
+                    let e_prev = e;
                     e = hull.next[e];
+                    if e == EMPTY {
+                        e = e_prev;
+                        break;
+                    }
                     if e == hull.start {
                         break;
                     }
